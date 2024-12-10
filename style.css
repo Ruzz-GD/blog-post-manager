@@ -163,6 +163,7 @@ body{
 }
 .hello {
     display: inline;
+    font-weight: bold;
     color: rgb(230, 230, 230);
 }
 .guhit {
@@ -175,6 +176,9 @@ body{
 .by{
     font-weight: bold;
     color: skyblue;
+}
+#success-message{
+    text-align: center;
 }
 @keyframes flicker {
     0%, 50% {
