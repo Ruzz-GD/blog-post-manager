@@ -44,9 +44,13 @@ function closeAddModal() {
     modal.style.display = 'none';
 }
 
-// Add Post (update the DOM and sessionStorage)
+let isAdding = false; // Flag to prevent multiple submissions
+
 async function addPost(event) {
     event.preventDefault();
+
+    if (isAdding) return; // Prevent double submission
+    isAdding = true; // Set the flag to true
 
     const title = document.getElementById('add-title').value;
     const body = document.getElementById('add-body').value;
@@ -82,6 +86,8 @@ async function addPost(event) {
         }
     } catch (error) {
         console.error('Error adding post:', error);
+    } finally {
+        isAdding = false; // Reset the flag
     }
 }
 
@@ -177,11 +183,6 @@ function closeSuccessModal() {
     const successModal = document.getElementById('success-modal');
     successModal.style.display = 'none';
 }
-
-
-
-
-
 
 
 const phrases = ['Gimena', 'Diaz', 'Alcaraz', 'Lagajino'];
